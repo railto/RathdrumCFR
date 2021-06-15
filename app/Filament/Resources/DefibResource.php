@@ -20,7 +20,9 @@ class DefibResource extends Resource
         return $form
             ->schema(
                 [
+                    TextInput::make('name')->required(),
                     TextInput::make('location')->required(),
+                    TextInput::make('coordinates'),
                     TextInput::make('model')->required(),
                     TextInput::make('serial'),
                     TextInput::make('owner')->default('Rathdrum CFR'),
@@ -37,6 +39,7 @@ class DefibResource extends Resource
         return $table
             ->columns(
                 [
+                    Text::make('name'),
                     Text::make('location'),
                     Text::make('last_inspected_by'),
                     Text::make('last_inspected_at')->dateTime('l j F Y')->label('Last Inspected On'),

@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Defib extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
 }

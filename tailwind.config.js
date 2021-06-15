@@ -1,14 +1,15 @@
 module.exports = {
-  purge: [
-      './resources/**/*.blade.php',
-      './resources/**/*.js',
-  ],
-  darkMode: false,
-  theme: {
-    extend: {},
-  },
-  variants: {
-    extend: {},
-  },
-  plugins: [],
+    mode: 'jit',
+    purge: [
+        './resources/**/*.blade.php',
+        './resources/**/*.js',
+    ],
+    darkMode: false,
+    theme: {
+        extend: {},
+    },
+    variants: {
+        extend: {},
+    },
+    plugins: [],
 }

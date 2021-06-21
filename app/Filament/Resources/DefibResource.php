@@ -42,7 +42,6 @@ class DefibResource extends Resource
             ->columns(
                 [
                     Text::make('name'),
-                    Text::make('location'),
                     Text::make('last_inspected_by'),
                     Text::make('last_inspected_at')->dateTime('l j F Y')->label('Last Inspected On'),
                     Text::make('pads_expire_at')->date('l j F Y')->label('Pads Expire On'),

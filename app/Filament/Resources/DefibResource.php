@@ -27,7 +27,7 @@ class DefibResource extends Resource
                     TextInput::make('serial'),
                     TextInput::make('owner')->default('Rathdrum CFR'),
                     TextInput::make('last_inspected_by'),
-                    DateTimePicker::make('last_inspected_at')->displayFormat('l j F Y H:m')->maxDate('today'),
+                    DatePicker::make('last_inspected_at')->displayFormat('l j F Y')->maxDate('today')->label('Last inspected on'),
                     DatePicker::make('last_serviced_at')->displayFormat('l j F Y')->maxDate('today')->label(
                         'Last serviced on'
                     ),

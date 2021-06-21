@@ -8,4 +8,6 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateDefib extends CreateRecord
 {
     public static $resource = DefibResource::class;
+
+    public static $showRoute = 'view';
 }

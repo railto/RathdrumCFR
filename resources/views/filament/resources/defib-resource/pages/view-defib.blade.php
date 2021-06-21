@@ -2,6 +2,6 @@
     <x-filament::app-header :title="__($title)" />
 
     <x-filament::app-content>
-        {{-- Page content --}}
+        {{ $record->name }}
     </x-filament::app-content>
 </div>

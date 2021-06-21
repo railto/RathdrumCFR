@@ -6,6 +6,7 @@ use Filament\Resources\Forms\Components\DatePicker;
 use Filament\Resources\Forms\Components\DateTimePicker;
 use Filament\Resources\Resource;
 use Filament\Resources\Forms\Form;
+use Filament\Resources\Tables\Columns\Column;
 use Filament\Resources\Tables\Table;
 use Filament\Resources\Tables\Columns\Text;
 use App\Filament\Resources\DefibResource\Pages;
@@ -15,7 +16,7 @@ class DefibResource extends Resource
 {
     public static $icon = 'heroicon-o-lightning-bolt';
 
-    public static function form(Form $form)
+    public static function form(Form $form): Form
     {
         return $form
             ->schema(
@@ -28,13 +29,15 @@ class DefibResource extends Resource
                     TextInput::make('owner')->default('Rathdrum CFR'),
                     TextInput::make('last_inspected_by'),
                     DateTimePicker::make('last_inspected_at')->displayFormat('l j F Y H:m')->maxDate('today'),
-                    DatePicker::make('last_serviced_at')->displayFormat('l j F Y')->maxDate('today')->label('Last serviced on'),
+                    DatePicker::make('last_serviced_at')->displayFormat('l j F Y')->maxDate('today')->label(
+                        'Last serviced on'
+                    ),
                     DatePicker::make('pads_expire_at')->displayFormat('l j F Y')->label('Pads expire on'),
                 ]
             );
     }
 
-    public static function table(Table $table)
+    public static function table(Table $table): Table
     {
         return $table
             ->columns(
@@ -44,6 +47,12 @@ class DefibResource extends Resource
                     Text::make('last_inspected_by'),
                     Text::make('last_inspected_at')->dateTime('l j F Y')->label('Last Inspected On'),
                     Text::make('pads_expire_at')->date('l j F Y')->label('Pads Expire On'),
+                    Text::make('test')
+                        ->getValueUsing($callback = function($record) {
+                            return view('icon')->render();
+                        })
+                        ->label('')
+                        ->url(fn ($record) => "defibs/{$record->id}", false),
                 ]
             )
             ->filters(
@@ -53,19 +62,20 @@ class DefibResource extends Resource
             );
     }
 
-    public static function relations()
+    public static function relations(): array
     {
         return [
             //
         ];
     }
 
-    public static function routes()
+    public static function routes(): array
     {
         return [
             Pages\ListDefibs::routeTo('/', 'index'),
             Pages\CreateDefib::routeTo('/create', 'create'),
             Pages\EditDefib::routeTo('/{record}/edit', 'edit'),
+            Pages\ViewDefib::routeTo('/{record}', 'view'),
         ];
     }
 }

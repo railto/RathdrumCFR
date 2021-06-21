@@ -1,8 +1,20 @@
 <?php
 
-test('logged out user accessing admin redirects to login', function () {
-    $response = $this->get('/admin');
+namespace Tests\Feature;
 
-    $response->assertRedirect('/admin/login');
-    $response->assertStatus(302);
-});
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Tests\TestCase;
+
+class AdminTest extends TestCase
+{
+    /** @test */
+    public function aGuestCanNotAccessAdminPage(): void
+    {
+        $response = $this->get('/admin');
+
+        $this->assertGuest();
+        $response->assertRedirect('/admin/login');
+        $response->assertStatus(302);
+    }
+}

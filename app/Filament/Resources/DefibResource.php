@@ -2,14 +2,14 @@
 
 namespace App\Filament\Resources;
 
-use Filament\Resources\Forms\Components\DatePicker;
-use Filament\Resources\Forms\Components\DateTimePicker;
 use Filament\Resources\Resource;
 use Filament\Resources\Forms\Form;
 use Filament\Resources\Tables\Table;
 use Filament\Resources\Tables\Columns\Text;
 use App\Filament\Resources\DefibResource\Pages;
 use Filament\Resources\Forms\Components\TextInput;
+use Filament\Resources\Forms\Components\DatePicker;
+use Filament\Resources\Forms\Components\DateTimePicker;
 
 class DefibResource extends Resource
 {
@@ -46,17 +46,6 @@ class DefibResource extends Resource
                     Text::make('last_inspected_by'),
                     Text::make('last_inspected_at')->dateTime('l j F Y')->label('Last Inspected On'),
                     Text::make('pads_expire_at')->date('l j F Y')->label('Pads Expire On'),
-                    Text::make('test')
-                        ->getValueUsing($callback = function($record) {
-                            return view('icon')->render();
-                        })
-                        ->label('')
-                        ->url(fn ($record) => "defibs/{$record->id}", false),
-                ]
-            )
-            ->filters(
-                [
-                    //
                 ]
             );
     }

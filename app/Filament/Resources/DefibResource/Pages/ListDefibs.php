@@ -8,4 +8,8 @@ use Filament\Resources\Pages\ListRecords;
 class ListDefibs extends ListRecords
 {
     public static $resource = DefibResource::class;
+
+    public static $editRecordActionLabel = 'View';
+
+    public $recordRoute = 'view';
 }

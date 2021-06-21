@@ -6,7 +6,6 @@ use Filament\Resources\Forms\Components\DatePicker;
 use Filament\Resources\Forms\Components\DateTimePicker;
 use Filament\Resources\Resource;
 use Filament\Resources\Forms\Form;
-use Filament\Resources\Tables\Columns\Column;
 use Filament\Resources\Tables\Table;
 use Filament\Resources\Tables\Columns\Text;
 use App\Filament\Resources\DefibResource\Pages;

@@ -1,20 +1,13 @@
 <?php
 
-namespace Tests\Feature;
+use function Pest\Laravel\get;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Tests\TestCase;
-
-class HomeTest extends TestCase
-{
-    /** @test */
-    public function theHomePageLoads(): void
-    {
-        $response = $this->get('/');
-
-        $response->assertSee('Rathdrum Community First Responders');
-        $response->assertSee('New Website Coming Soon');
-        $response->assertStatus(200);
+test(
+    'the homepage loads',
+    function () {
+        get('/')
+            ->assertStatus(200)
+            ->assertSee('Rathdrum Community First Responders')
+            ->assertSee("We are currently working on a new website");
     }
-}
+);

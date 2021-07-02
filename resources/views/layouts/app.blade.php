@@ -8,6 +8,7 @@
     <title>Rathdrum Community First Responders</title>
 
     <!-- Styles -->
+    @livewireStyles
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head>
 <body class="font-sans antialiased flex flex-col min-h-screen">
@@ -20,6 +21,7 @@
 @include('partials.footer')
 
 <!-- Scripts -->
+@livewireScripts
 <script src="{{ mix('js/app.js') }}" defer></script>
 @if (config('app.env') == 'production' && Auth::guest())
     <script async defer data-website-id="69deb0c4-d4c2-4bea-a1bf-8ebc168a52a4" src="https://stats.markrailton.com/umami.js"></script>

@@ -18,7 +18,12 @@ class DefibMap extends Component
         $this->locations = Defib::public()->map(
             function ($defib) {
                 $coordinates = explode(',', $defib->coordinates);
-                return ['lat' => $coordinates[0], 'lng' => $coordinates[1], 'name' => $defib->name];
+                return [
+                    'lat' => $coordinates[0],
+                    'lng' => $coordinates[1],
+                    'name' => $defib->name,
+                    'location' => $defib->location,
+                ];
             }
         );
     }

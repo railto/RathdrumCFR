@@ -27,7 +27,7 @@
 
             (function (marker, location) {
                 google.maps.event.addListener(marker, "click", function (e) {
-                    infoWindow.setContent("<div style = 'width:200px;min-height:40px'>" + location.name + "</div>");
+                    infoWindow.setContent("<div style='width:200px;min-height:40px'>" + location.location +"</div>");
                     infoWindow.open(map, marker);
                 });
             })(marker, location);

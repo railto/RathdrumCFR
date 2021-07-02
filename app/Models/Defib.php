@@ -69,4 +69,9 @@ class Defib extends Model
     {
         return $this->hasMany(DefibNote::class);
     }
+
+    public function scopePublic(Builder $query): Collection
+    {
+        return $query->whereNotNull('coordinates')->get();
+    }
 }

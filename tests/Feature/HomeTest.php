@@ -8,13 +8,15 @@ use Tests\TestCase;
 
 class HomeTest extends TestCase
 {
+    use RefreshDatabase;
+
     /** @test */
     public function theHomePageLoads(): void
     {
         $response = $this->get('/');
 
         $response->assertSee('Rathdrum Community First Responders');
-        $response->assertSee('New Website Coming Soon');
+        $response->assertSee("We are currently working on a new website");
         $response->assertStatus(200);
     }
 }

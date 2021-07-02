@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\IndexController;
+use App\Http\Livewire\DefibMap;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', IndexController::class);

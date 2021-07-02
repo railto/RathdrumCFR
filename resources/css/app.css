@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 #defibMapWrapper {
-    height: 400px;
+    height: 650px;
 }
 
 #defibMapCanvas {

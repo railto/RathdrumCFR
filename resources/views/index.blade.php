@@ -4,7 +4,7 @@
             <br />but in the mean time you can view a map of our available defibrillators in the Rathdrum area</h2>
     </section>
 
-    <section class="pt-10">
+    <section class="pt-10 max-w-4xl mx-auto">
         @livewire('defib-map')
     </section>
 </x-app-layout>
